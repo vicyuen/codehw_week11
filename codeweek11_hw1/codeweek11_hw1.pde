@@ -23,12 +23,18 @@ void setup() {
 }
 
 void draw() {
-  background(100);
+  //background(100);
+  if (button.getButtonStatus()) {
+    background(255, 0, 0);
+  } else {
+    background(0);
+  }
   button.display();
+  button.checkPressed();
 }
 
 void mousePressed() {
-  button.checkPressed();
+  //button.checkPressed();
 }
 
 class Button {
@@ -45,33 +51,9 @@ class Button {
 
   void checkPressed() {
     if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
-      pressed = !pressed;
-    }
-  }
-
-  void display() {
-    if (pressed) {
-      fill(240);
+      pressed = true;
     } else {
-      fill(150);
-    }
-    rect(x, y, w, h);
-  }
-
-  boolean getButtonStatus() {
-    return pressed;
-  }
-}
-
-class ButtonPressed {
-
-  boolean pressed;
-  float x, y;
-  float w, h;
-
-  void checkPressed() {
-    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
-      pressed = !pressed;
+      pressed = false;
     }
   }
 
