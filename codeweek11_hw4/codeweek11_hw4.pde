@@ -56,12 +56,12 @@ void draw() {
     int y_pos;
     if (letterHeight == maxHeight) {
       y_pos = y;
-      rect( x, y_pos, letterWidth, letterHeight );
+      ellipse( x, y_pos, letterWidth, letterHeight );
     } else {
       y_pos = y + minHeight;
-      rect( x, y_pos, letterWidth, letterHeight );
+      ellipse( x, y_pos, letterWidth, letterHeight );
       fill(numChars/2);
-      rect( x, y_pos-minHeight, letterWidth, letterHeight );
+      ellipse( x, y_pos-minHeight, letterWidth, letterHeight );
     }
     newletter = false;
   }
